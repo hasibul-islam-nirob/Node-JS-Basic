@@ -1,18 +1,22 @@
 
 var http = require('http');
+var url = require('url');
 
 var myServer = http.createServer(function (request, response){
 
-    if (request.url == "/"){
-        response.writeHead(200, {'Content-Type':'text/html'})
-        response.write('<h1>This is Home Page</h1>')
-        response.end();
+    var myURL = "http://facebook.com/hasibulislamnirab/";
+    var urlObj = url.parse(myURL, true);
 
-    }else if (request.url == "/about"){
-        response.writeHead(200, {'Content-Type': 'text/html'})
-        response.write('<h1>This is About Page</h1>')
-        response.end();
-    }
+    var myhostName = urlObj.host;
+    var mypathName = urlObj.pathname;
+    var mysearchName = urlObj.search;
+
+    response.writeHead(200, {'Content-Type':'text/html'})
+    response.write(myhostName)
+    response.write(mypathName)
+    //response.write(mysearchName)
+    response.end();
+
 
 });
 
