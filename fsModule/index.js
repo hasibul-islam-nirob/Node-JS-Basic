@@ -4,6 +4,7 @@ var fs = require('fs');
 var myServer = http.createServer(function (req,res){
     if (req.url == '/'){
 
+        /*
         //File Delete Asynchronous
         fs.unlink('nirobNew.txt',function (error){
            if (error){
@@ -17,9 +18,11 @@ var myServer = http.createServer(function (req,res){
            }
         })
 
-        /*
-          //File Delete Synchronous
-             var error = fs.renameSync('nirobSync.txt','nirobSyncNew.txt');
+         */
+
+
+            //File Delete Synchronous
+            var error = fs.unlinkSync('nirobSyncNew.txt');
             if (error){
                res.writeHead(200,{'Content-Type':'text/html'})
                res.write("File Delete Fail")
@@ -29,8 +32,6 @@ var myServer = http.createServer(function (req,res){
                res.write("File Delete Success")
                res.end();
            }
-
-         */
 
 
 
