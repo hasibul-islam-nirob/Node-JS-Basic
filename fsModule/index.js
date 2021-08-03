@@ -21,16 +21,12 @@ var myServer = http.createServer(function (req,res){
          */
 
 
-            //File Delete Synchronous
-            var error = fs.unlinkSync('nirobSyncNew.txt');
-            if (error){
-               res.writeHead(200,{'Content-Type':'text/html'})
-               res.write("File Delete Fail")
-               res.end();
+            //File Exists Synchronous
+            var result = fs.existsSync('nirobSyncNew.txt');
+            if (result){
+               res.end("True");
            }else {
-               res.writeHead(200,{'Content-Type':'text/html'})
-               res.write("File Delete Success")
-               res.end();
+               res.end("False");
            }
 
 
