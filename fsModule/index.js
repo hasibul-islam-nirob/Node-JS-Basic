@@ -4,23 +4,19 @@ var fs = require('fs');
 var myServer = http.createServer(function (req,res){
     if (req.url == '/'){
 
-        /*
-        //File Delete Asynchronous
-        fs.unlink('nirobNew.txt',function (error){
-           if (error){
-               res.writeHead(200,{'Content-Type':'text/html'})
-               res.write("File Delete Fail")
-               res.end();
+
+        //File Exists Asynchronous
+        fs.exists('nirobNew.txt',function (result){
+           if (result){
+               res.end("True");
            }else {
-               res.writeHead(200,{'Content-Type':'text/html'})
-               res.write("File Delete Success")
-               res.end();
+               res.end("False");
            }
         })
 
-         */
 
 
+            /*
             //File Exists Synchronous
             var result = fs.existsSync('nirobSyncNew.txt');
             if (result){
@@ -28,6 +24,8 @@ var myServer = http.createServer(function (req,res){
            }else {
                res.end("False");
            }
+
+             */
 
 
 
